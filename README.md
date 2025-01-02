@@ -1,1 +1,1 @@
-# BezRelaitky-Scraper
+# BezRealitky-Scraper
