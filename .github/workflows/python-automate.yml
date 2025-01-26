@@ -1,29 +1,32 @@
-name: Run Python Script
+name: Daily Scraper
 
 on:
-  # Adjust this to trigger the workflow as needed:
-  push:
-    branches:
-      - main  # Trigger on pushes to the main branch
   schedule:
-    - cron: '0 9 * * *'  # Runs daily at 9:00 AM UTC (adjust as needed)
+    # Runs daily at 9:00 AM CET (8:00 AM UTC)
+    - cron: "0 8 * * *"
 
 jobs:
-  run-script:
-    runs-on: ubuntu-latest  # You can use other runners if needed
+  run-scraper:
+    runs-on: ubuntu-latest
+
     steps:
+      # Check out the code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.13.1'  # Replace with your Python version
+          python-version: "3.13.1"  # Adjust as needed
 
+      # Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -r requirements.txt  # Ensure you have a `requirements.txt`
 
-      - name: Run Python script
-        run: apartment_project.ipynb  # Replace with your script's name
+      # Run the scraper
+      - name: Run scraper
+        run: |
+          apartment_project.ipynb
