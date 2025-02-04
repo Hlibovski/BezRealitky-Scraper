@@ -29,5 +29,7 @@ jobs:
 
       # Run the scraper
       - name: Run scraper
+        env:
+          SEZNAM_PASSWORD: ${{ secrets.SEZNAM_MAIL_PASSWORD }}  # Pass the secret as an environment variable
         run: |
           jupyter nbconvert --to notebook --execute apartment_project.ipynb
