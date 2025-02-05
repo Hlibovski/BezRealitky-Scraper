@@ -9,7 +9,8 @@ This project automates the process of scraping real estate listings from the Bez
 • Secure Credentials: Uses GitHub Secrets for password management.<br>
 ## Technologies Used
 • Python: Web scraping, data processing, email automation.<br>
-• BeautifulSoup/Selenium: Web scraping.<br>
+• requests: HTTP protocol calls.<br>
+• BeautifulSoup: Web scraping.<br>
 • pandas: Data manipulation.<br>
 • smtplib: Email sending.<br>
 • GitHub Actions: Automation & scheduling.<br>
