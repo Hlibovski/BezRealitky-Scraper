@@ -30,10 +30,10 @@ jobs:
       - name: Check if secret is set
         run: |
           if [[ -z "${{ secrets.SEZNAM_MAIL_PASSWORD }}" ]]; then
-          echo "SEZNAM_MAIL_PASSWORD is NOT set!"
-          exit 1
+            echo "SEZNAM_MAIL_PASSWORD is NOT set!"
+            exit 1
           else
-          echo "SEZNAM_MAIL_PASSWORD is set (but hidden)."
+            echo "SEZNAM_MAIL_PASSWORD is set (but hidden)."
           fi
 
       # Run the scraper
