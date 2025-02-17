@@ -35,8 +35,6 @@ jobs:
           else
             echo "SEZNAM_MAIL_PASSWORD is set (but hidden)."
           fi
-
-      # Run the scraper
       - name: Run scraper
         env:
           SEZNAM_PASSWORD: ${{ secrets.SEZNAM_MAIL_PASSWORD }}  # Pass the secret as an environment variable
