@@ -26,6 +26,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt  # Ensure you have a `requirements.txt`
+          
+      - name: Check if secret is set
+        run: |
+          if [[ -z "${{ secrets.SEZNAM_MAIL_PASSWORD }}" ]]; then
+          echo "SEZNAM_MAIL_PASSWORD is NOT set!"
+          exit 1
+          else
+          echo "SEZNAM_MAIL_PASSWORD is set (but hidden)."
+          fi
 
       # Run the scraper
       - name: Run scraper
